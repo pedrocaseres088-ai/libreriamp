@@ -1,0 +1,9 @@
+Options -Indexes
+
+# Carpetas internas: nunca accesibles por URL (los PDFs solo salen por public/download.php)
+RedirectMatch 403 ^/(db|config|secure_files|vendor)(/|$)
+
+# Archivos sensibles / de documentación
+<FilesMatch "(^\.|\.(md|sql|json|lock|log|txt|example|sh)$|^Dockerfile$)">
+  Require all denied
+</FilesMatch>
